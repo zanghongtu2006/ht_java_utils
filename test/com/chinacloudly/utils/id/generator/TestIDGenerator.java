@@ -1,4 +1,4 @@
-package com.chinacloudly.utils.md5;
+package com.chinacloudly.utils.id.generator;
 
 import java.util.Date;
 
