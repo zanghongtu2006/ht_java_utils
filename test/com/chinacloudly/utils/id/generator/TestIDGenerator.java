@@ -1,5 +1,7 @@
 package com.chinacloudly.utils.id.generator;
 
+import static org.junit.Assert.assertEquals;
+
 import java.util.Date;
 
 import org.junit.Test;
@@ -23,8 +25,9 @@ public class TestIDGenerator {
 	
 	@Test
 	public void testGetServerIdByID() throws Exception {
-		long id = IDGenerator.generateId(12);
+		int origServerID = 12;
+		long id = IDGenerator.generateId(origServerID);
 		int serverID = IDGenerator.getServerIdByID(id);
-		System.out.println(serverID);
+		assertEquals(origServerID, serverID);
 	}
 }
