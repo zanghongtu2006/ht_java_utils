@@ -1,4 +1,4 @@
-package com.chinacloudly.htjutils.md5;
+package com.chinacloudly.utils.md5;
 
 import java.security.MessageDigest;
 
