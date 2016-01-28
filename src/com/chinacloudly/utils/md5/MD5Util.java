@@ -4,8 +4,11 @@ import java.security.MessageDigest;
 
 public class MD5Util {
 	
-	/*
-	 * md5 a string
+	/**
+	 * md5 a string 
+	 * Usage: saltMD5(sourceString)
+	 * @param s sourceString
+	 * @return MD5 String with salt
 	 */
 	public final static String MD5(String s) {
 		char hexDigits[]={'0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f'};
@@ -29,9 +32,13 @@ public class MD5Util {
 		}
 	}
 	
-	/*
+	/**
 	 * md5 a string with salt
 	 * md5(s + salt)
+	 * Usage: saltMD5(sourceString, saltString)
+	 * @param s sourceString
+	 * @param salt saltString
+	 * @return MD5 String with salt
 	 */
 	public final static String saltMD5(String s, String salt) {
 		return MD5(s + salt);
