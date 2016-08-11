@@ -1,11 +1,11 @@
-package com.chinacloudly.utils.config;
+package com.hongtu.utils.config;
 
 import java.io.File;
 
 
 public class Path {
 	
-	public final static String getCurrentPath() {
+	public static String getCurrentPath() {
 		String path = System.getProperty("serviceframe.config.path");
 		if (path == null || path.equalsIgnoreCase("")) {
 			Class<?> caller = getCaller();

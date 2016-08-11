@@ -1,4 +1,4 @@
-package com.chinacloudly.utils.md5;
+package com.hongtu.utils.md5;
 
 import org.junit.Test;
 

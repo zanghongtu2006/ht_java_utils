@@ -1,4 +1,4 @@
-package com.chinacloudly.utils.config;
+package com.hongtu.utils.config;
 
 public interface IConfig {
 

@@ -1,4 +1,4 @@
-package com.chinacloudly.utils.string;
+package com.hongtu.utils.string;
 
 public class StringUtils {
 

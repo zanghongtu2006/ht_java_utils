@@ -1,4 +1,4 @@
-package com.chinacloudly.utils.id.generator;
+package com.hongtu.utils.id.generator;
 
 
 public class IDGenerator {

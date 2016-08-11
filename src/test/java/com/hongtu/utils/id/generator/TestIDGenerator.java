@@ -1,12 +1,10 @@
-package com.chinacloudly.utils.id.generator;
+package com.hongtu.utils.id.generator;
 
 import static org.junit.Assert.assertEquals;
 
 import java.util.Date;
 
 import org.junit.Test;
-
-import com.chinacloudly.utils.id.generator.IDGenerator;
 
 public class TestIDGenerator {
 
