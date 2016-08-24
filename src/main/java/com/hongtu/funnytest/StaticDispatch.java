@@ -18,11 +18,11 @@ public class StaticDispatch {
     }
 
     public void sayHello(Man guy) {
-        System.out.println("hello guy");
+        System.out.println("hello man");
     }
 
     public void sayHello(Woman guy) {
-        System.out.println("hello guy");
+        System.out.println("hello woman");
     }
 
     public static void main(String[] args) {
