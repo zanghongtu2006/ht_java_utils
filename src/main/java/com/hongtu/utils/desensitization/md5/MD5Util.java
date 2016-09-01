@@ -1,4 +1,4 @@
-package com.hongtu.utils.md5;
+package com.hongtu.utils.desensitization.md5;
 
 import java.security.MessageDigest;
 
