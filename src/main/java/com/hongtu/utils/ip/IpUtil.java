@@ -1,25 +1,63 @@
 package com.hongtu.utils.ip;
 
 
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
+import java.util.Enumeration;
+
 public class IpUtil {
-		
-	private static long str2Ip(String ip) {
-		long result = 0;
-		try {
-			String[] strs = ip.split("\\.");		
-			long a, b, c, d;
-			a = Long.parseLong(strs[0]);
-			b = Long.parseLong(strs[1]);
-			c = Long.parseLong(strs[2]);
-			d = Long.parseLong(strs[3]);
-			result = (a << 24) | (b << 16) | (c << 8) | d;
-		} catch (NumberFormatException e) {
-			result = 0;
+
+	/**
+	 * 根据网卡取本机配置的IP
+	 * 取第一个网卡
+	 * @return
+	 * @throws SocketException
+	 * @throws UnknownHostException
+	 */
+	public static String getStrLocalIP() throws SocketException, UnknownHostException {
+		String ip = null;
+		Enumeration<NetworkInterface> enuNI = NetworkInterface.getNetworkInterfaces();
+		begin: while(enuNI.hasMoreElements()) {
+			NetworkInterface ni = (NetworkInterface)enuNI.nextElement();
+			Enumeration<InetAddress> enuAddress = ni.getInetAddresses();
+			while(enuAddress.hasMoreElements()) {
+				InetAddress address = enuAddress.nextElement();
+				if(!address.isSiteLocalAddress()
+						&& !address.isLoopbackAddress()
+						&& address.getHostAddress().indexOf(":") == -1) {
+					ip = address.getHostAddress();
+					break begin;
+				}
+			}
 		}
-		return result;
+
+		if(ip == null) {
+			InetAddress addr = InetAddress.getLocalHost();
+			ip = addr.getHostAddress();
+		}
+		return ip;
+	}
+		
+	private static long str2Ip(String ip) throws Exception {
+		if(ip != null) {
+			String[] aryIP = ip.split("\\.");
+			byte[] buffer = new byte[4];
+			if(aryIP.length == 4) {
+				for(int i=0; i<4; i++) {
+					short item = Short.parseShort(aryIP[i]);
+					buffer[i] = (byte)item;
+				}
+
+				return Endianness.toInt32(buffer);
+			}
+		}
+
+		throw new Exception("can't get local ip");
 	}
 
-	public static long Ip2Int(String ip) {
+	public static long Ip2Int(String ip) throws Exception {
 		long ipNum = str2Ip(ip);
 		return ipNum;
 	}
