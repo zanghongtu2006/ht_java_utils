@@ -1,6 +1,8 @@
 package com.hongtu.funnytest;
 
 /**
+ * 表现类型和实际类型的区别
+ * man 和woman都会转换成Human处理
  * Created by hongtu_zang on 2016/8/24.
  */
 public class StaticDispatch {

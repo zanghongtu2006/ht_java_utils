@@ -3,6 +3,7 @@ package com.hongtu.funnytest;
 import java.io.Serializable;
 
 /**
+ * 重载中的类型优先级
  * Created by hongtu_zang on 2016/8/24.
  */
 public class Override {
